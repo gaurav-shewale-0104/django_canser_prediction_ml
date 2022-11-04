@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>My Django Canser Project</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark text-white"><h1>Canser Prediction</h1></nav>
+    <hr>
+    {% if p %}
+    <div class="alert alert-danger">
+    <h1>{{p}}</h1>
+    {% endif %}</div>
+
+    {% if s %}
+    <div class="alert alert-success">
+    <h1>{{s}}</h1>
+    {% endif %}</div>
+    <div class="jumbotron">
+    <form action="/predict" method="POST" class="form-group">
+        {% csrf_token %}
+        <div class="mb-3">
+        <label for="age"  class="form-label">Age : </label>
+        <input type="numeric" name="age" id="age" class="form-control"><br>
+    </div>
+
+    <div class="mb-3">
+        <label for="bmi"  class="form-label">BMI : </label>
+        <input type="numeric" name="bmi" id="bmi" class="form-control"><br></div>
+
+        <div class="mb-3">
+        <label for="glucose"  class="form-label">Glucose : </label>
+        <input type="numeric" name="glucose" id="glucose" class="form-control"><br></div>
+
+        <div class="mb-3">
+        <label for="insuline"  class="form-label">Insuline : </label>
+        <input type="numeric" name="insuline" id="insuline" class="form-control"><br></div>
+
+        <div class="mb-3">
+        <label for="homa"  class="form-label">Homa : </label>
+        <input type="numeric" name="homa" id="homa" class="form-control"><br></div>
+
+        <div class="mb-3">
+        <label for="leptin"  class="form-label">Leptin : </label>
+        <input type="numeric" name="leptin" id="leptin" class="form-control"><br></div>
+
+        <div class="mb-3">
+        <label for="adiponectin"  class="form-label">Adiponectin : </label>
+        <input type="numeric" name="adiponectin" id="adiponectin" class="form-control"><br></div>
+
+        <div class="mb-3">
+        <label for="resistin"  class="form-label">Resistin : </label>
+        <input type="numeric" name="resistin" id="resistin"  class="form-control"><br></div>
+
+        <div class="mb-3" >
+        <label for="mcp_1" class="form-label">MCP_1 : </label>
+        <input type="numeric" name="mcp_1" id="mcp_1" class="form-control"><br><br></div>
+
+        <input type="submit" name="submit" id="submit" class="btn btn-dark">
+    </form>
+</div>
+</body>
+</html>
